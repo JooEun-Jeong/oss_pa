@@ -15,6 +15,12 @@
   justify-content: center;
   align-items: center;
   font-size: 24px;
+  border: none;
+}
+
+.plus-button:hover {
+  background-color: rgb(139, 157, 174);
+  cursor: pointer;
 }
 
 .input-container {

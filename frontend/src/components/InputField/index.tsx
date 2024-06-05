@@ -1,7 +1,8 @@
-import React from "react";
+import React, { useState } from "react";
 import { Input } from "@mui/base/Input";
 import { Button } from "@mui/base/Button";
 import "./InputField.css";
+import { AlertModal } from "../Alert";
 
 interface InputProps {
   message: string;
@@ -14,9 +15,17 @@ const InputField: React.FC<InputProps> = ({
   setMessage,
   sendMessage,
 }) => {
+  const [isOpen, setIsOpen] = useState(false);
+
+  const onClose = () => setIsOpen(false);
+  const onOpen = () => setIsOpen(true);
+
   return (
     <div className="input-area">
-      <div className="plus-button">+</div>
+      <button className="plus-button" onClick={onOpen}>
+        +
+      </button>
+      <AlertModal isOpen={isOpen} onClose={onClose} />
       <form onSubmit={sendMessage} className="input-container">
         <Input
           placeholder="Type in here…"
