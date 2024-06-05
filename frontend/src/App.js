@@ -1,8 +1,11 @@
+import { useState, useEffect } from "react";
 import "./App.css";
 import socket from "./server";
+import InputField from "./components/InputField/InputField";
 
 function App() {
   const [user, setUser] = useState(null);
+  const [message, setMessage] = useState('');
   const askUserName = () => {
     const userName = prompt("당신의 이름을 입력하세요");
     console.log("uuu", userName);
@@ -20,9 +23,15 @@ function App() {
     askUserName();
   }, [])
 
+  const sendMessage = () => {
+
+  }
+
   return (
     <div>
-      <div className="App"></div>
+      <div className="App">
+        <InputField message={message} setMessage={setMessage} sendMessage={sendMessage} />
+      </div>
     </div>
   );
 }
