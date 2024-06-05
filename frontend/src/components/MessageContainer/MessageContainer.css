@@ -1,6 +1,5 @@
 .system-message-container {
   display: flex;
-
   justify-content: center;
   align-items: center;
 }
@@ -24,6 +23,14 @@
   padding: 8px;
   max-width: 200px;
   font-size: 12px;
+}
+
+.time {
+  color: #55667758;
+  margin-right: 5px;
+  margin-left: 5px;
+  display: flex;
+  align-items: center;
 }
 
 .your-message-container {

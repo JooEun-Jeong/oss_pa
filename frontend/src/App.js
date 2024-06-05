@@ -30,9 +30,13 @@ function App() {
   useEffect(() => {
     socket.on('message', (message) => {
       console.log("Message", message);
+      const time = new Date();
+      const hour = time.getHours().toString().padStart(2, '0');
+      const min = time.getMinutes().toString().padStart(2, '0');
+      const timeS = `${hour}:${min}`
       if (!_.isUndefined(message)) {
-        setMessageList((prev) => prev.concat(message));
-        console.log("Messagelist", [...messageList, message])
+        setMessageList((prev) => prev.concat({ ...message, time: timeS }));
+        console.log("Messagelist", [...messageList, { ...message, time: timeS }])
       }
     })
   }, [])

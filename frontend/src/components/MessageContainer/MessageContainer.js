@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import React from "react";
 import "./MessageContainer.css";
 import { Container } from "@mui/system";
 import _ from "lodash";
@@ -15,6 +15,7 @@ const MessageContainer = ({ messageList, user }) => {
               </div>
             ) : message.user.name === user.name ? (
               <div className="my-message-container">
+                <div className="time">{message.time}</div>
                 <div className="my-message">{message.chat}</div>
               </div>
             ) : (
@@ -33,6 +34,7 @@ const MessageContainer = ({ messageList, user }) => {
                   }
                 />
                 <div className="your-message">{message.chat}</div>
+                <div className="time">{message.time}</div>
               </div>
             )}
           </Container>
