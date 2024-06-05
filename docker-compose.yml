@@ -1,4 +1,4 @@
-version: '3'
+version: "3"
 
 services:
   frontend:
@@ -9,10 +9,10 @@ services:
       - "11250:80"
     depends_on:
       - backend
-    
+
   backend:
     build:
       context: ./backend
       dockerfile: Dockerfile
     ports:
-      - "5000:5000"
+      - "5002:5002"
