@@ -2,12 +2,13 @@ const { createServer } = require("http");
 const app = require("./app");
 const { Server } = require("socket.io");
 require("dotenv").config();
-const userController = require("Controllers/user.controller")
+const userController = require("./Controllers/user.controller")
+const chatController = require("./Controllers/chat.controller")
 
 const httpServer = createServer(app);
 const io = new Server(httpServer, {
   cors: {
-    origin: "http://localhost:11634"
+    origin: "http://localhost:1388"
   }
 })
 
@@ -35,7 +36,9 @@ io.on("connection", async (socket) => {
   socket.on("sendMessage", async (message, cb) => {
     try {
       // 유저 이름 찾기: socket id로
-      const user = await userController.checkUser(socket.id);
+      console.log("userId: "+ socket.id);
+      const user = await userController.getUserBySid(socket.id);
+      console.log(user)
 
       // 메세지 저장
       const newMessage = await chatController.saveChat(message, user);

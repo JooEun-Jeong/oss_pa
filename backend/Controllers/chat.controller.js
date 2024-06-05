@@ -10,6 +10,7 @@ chatController.saveChat = async(message, user) => {
     }
   })
   await newMessage.save();
+  return newMessage;
 }
 
 module.exports = chatController;
