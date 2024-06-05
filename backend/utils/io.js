@@ -1,5 +1,9 @@
 
 module.exports = function (io) {
+
+  const userController = require("../Controllers/user.controller")
+  const chatController = require("../Controllers/chat.controller")
+
   // socket에 연결될 사람
   io.on("connection", async (socket) => {
     console.log("client is connected", socket.id);

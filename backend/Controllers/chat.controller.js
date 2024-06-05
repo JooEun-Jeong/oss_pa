@@ -6,7 +6,7 @@ chatController.saveChat = async(message, user) => {
     chat: message,
     user: {
       id: user._id,
-      name: user.name
+      name: user.name,
     }
   })
   await newMessage.save();
