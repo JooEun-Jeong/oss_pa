@@ -39,7 +39,7 @@ const MessageContainer: React.FC<MesConProps> = ({ messageList, user }) => {
                           : messageList[index - 1].user.name === user.name) ||
                         messageList[index - 1].user.name === "system"
                           ? { visibility: "visible" }
-                          : { visibility: "hidden" }
+                          : { visibility: "visible" }
                       }
                     />
                   </div>
