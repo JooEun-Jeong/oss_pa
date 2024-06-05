@@ -6,7 +6,7 @@ import _ from "lodash";
 const MessageContainer = ({ messageList, user }) => {
   return (
     <div>
-      {_.isArray(messageList) && messageList.map((message, index) => {
+      {_.isArray(messageList) ? messageList.map((message, index) => {
         return (
           <Container key={message._id} className="message-container">
             {message.user.name === "system" ? (
@@ -37,7 +37,7 @@ const MessageContainer = ({ messageList, user }) => {
             )}
           </Container>
         );
-      })}
+      }) : <></>}
     </div>
   );
 };

@@ -3,6 +3,7 @@ import "./App.css";
 import socket from "./server";
 import InputField from "./components/InputField/InputField";
 import MessageContainer from "./components/MessageContainer/MessageContainer"
+import _ from "lodash";
 
 function App() {
   const [user, setUser] = useState(null);
@@ -23,24 +24,31 @@ function App() {
   }
 
   useEffect(() => {
+    askUserName();
+  }, [])
+
+  useEffect(() => {
     socket.on('message', (message) => {
       console.log("Message", message);
-      setMessageList((prev) => prev.concat(message));
+      if (!_.isUndefined(message)) {
+        setMessageList((prev) => prev.concat(message));
+        console.log("Messagelist", [...messageList, message])
+      }
     })
-    askUserName();
   }, [])
 
   const sendMessage = (event) => {
     event.preventDefault();
     socket.emit("sendMessage", message, (res) => {
       console.log("sendMessage", res);
+      setMessage("");
     })
   }
 
   return (
     <div>
       <div className="App">
-        <MessageContainer message={messageList} user={user} />
+        <MessageContainer messageList={messageList} user={user} />
         <InputField message={message} setMessage={setMessage} sendMessage={sendMessage} />
       </div>
     </div>
