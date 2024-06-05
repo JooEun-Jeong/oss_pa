@@ -10,7 +10,8 @@
 
 ### Reference
 
-[1] https://www.youtube.com/watch?v=uE9Ncr6qInQ&t=0s
+[1] https://www.youtube.com/watch?v=uE9Ncr6qInQ&t=0s  
+
 [2] https://github.com/legobitna/chatapp-client
 
 ### 지원 OS 및 실행 방법
